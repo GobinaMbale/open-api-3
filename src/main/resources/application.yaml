@@ -1,0 +1,43 @@
+# info application
+info:
+  app:
+    name: '@project.artifactId@'
+    version: '@project.version@'
+    title: '@project.artifactId@'
+    description: '@project.description@'
+    server:
+      url: ${SERVER_URL:http://localhost:8081/}
+    contact:
+      name: ${CONTACT_NAME:template_name}
+      url: ${CONTACT_NAME:template_url}
+      email: ${CONTACT_NAME:template_email}
+
+spring:
+  application:
+    name: '@project.artifactId@'
+
+
+# spring doc
+springdoc:
+  swagger-ui:
+    enabled: ${ENABLE_SWAGGER_UI:true}
+    oauth:
+      client-id: ${OAUTH2_CLIENT_ID:TEMPLATE_DEV}
+      client-secret: ${OAUTH2_CLIENT_SECRET:not-used}
+      realm: saas
+      scopes: openid profile
+    oauth2-redirect-url: ${FRONTEND_BASE_URL:http://localhost:4200}
+  writer-with-default-pretty-printer: true
+  show-actuator: false
+  oauth:
+    base-url: ${OAUTH2_BASE_URL:https://saas.test.com}
+    auth-url: ${springdoc.oauth.base-url}/auth/realms/saas/protocol/openid-connect/auth
+    token-url: ${springdoc.oauth.base-url}/auth/realms/saas/protocol/openid-connect/token
+
+# frontend base url
+frontend:
+  base-url: ${FRONTEND_BASE_URL:http://localhost:4200}
+
+# server
+server:
+  port: 8081
