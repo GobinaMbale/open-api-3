@@ -74,7 +74,6 @@ paths:
         '422':
           description: Validation exception
 
-  /helloWords:
     get:
       tags:
         - helloWord
